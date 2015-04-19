@@ -24,9 +24,9 @@
         goLink: (function () {
             //var myMsg = document.getElementById('userInput');
             var myMsg = this.$.userInput.value
-            alert(myMsg)
-            var socket = io.connect('http://127.0.0.1:3000/');;
-            socket.emit('SendMessage', myMsg);
+            var socket = io.connect('http://localhost:3000');
+            socket.emit('send message', {message : myMsg});
+            this.$.userInput.value
         })
         // define element prototype here
       });

@@ -76,12 +76,11 @@ app.use(function(err, req, res, next) {
 
 var usernames = {};
 var numUsers = 0;
-io.on('connection', function (socket) {
+io.sockets.on('connection', function (socket) {
   var addedUser = false;
-
   // when the client emits 'new message', this listens and executes
-  socket.on('SendMessage', function (data) {
-    console.log(data)
+  socket.on('send message', function (data) {
+    console.log(data.message)
   });
 
   // when the client emits 'add user', this listens and executes
