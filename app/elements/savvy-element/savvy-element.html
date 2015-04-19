@@ -2,25 +2,32 @@
 <link rel="import" href="/static/paper-button/paper-button.html">
 <link rel="import" href="/static/paper-input/paper-input-decorator.html">
 <link rel="import" href="/static/core-icon/core-icon.html">
-
+<script src="/socket.io/socket.io.js"></script>
 <polymer-element name="savvy-element" attributes="">
   <template>
     <link rel="stylesheet" href="savvy-element.css">
     <div horizontal layout end>
-      <paper-input-decorator floatingLabel label="Message" onclick="{{goLink}}" flex>
-        <input type="name">
+      <paper-input-decorator floatingLabel label="Message" value="{{myMsg}}" flex>
+        <input type="core-input" id="userInput">
       </paper-input-decorator>
       &nbsp;
-      <core-icon raised icon="polymer"></core-icon>
+      &nbsp;
+      <paper-button on-click="{{goLink}}" raised>
+        <core-icon raised icon="polymer"></core-icon>
+      </paper-button>
       </div>
 
   </template>
   <script>
     (function () {
       Polymer({
-        goLink: function () {
-
-        }
+        goLink: (function () {
+            //var myMsg = document.getElementById('userInput');
+            var myMsg = this.$.userInput.value
+            alert(myMsg)
+            var socket = io.connect('http://127.0.0.1:3000/');;
+            socket.emit('SendMessage', myMsg);
+        })
         // define element prototype here
       });
     })();
