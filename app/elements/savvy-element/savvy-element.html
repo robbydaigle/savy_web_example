@@ -6,7 +6,14 @@
 <polymer-element name="savvy-element" attributes="">
   <template>
     <link rel="stylesheet" href="savvy-element.css">
-    <core-icon icon="polymer"></core-icon>
+    <div horizontal layout end>
+      <paper-input-decorator floatingLabel label="Message" flex>
+        <input type="name">
+      </paper-input-decorator>
+      &nbsp;
+      <core-icon icon="polymer"></core-icon>
+      </div>
+
   </template>
   <script>
     (function () {
