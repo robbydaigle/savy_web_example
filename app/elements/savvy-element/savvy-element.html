@@ -1,13 +1,13 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/paper-button/paper-button.html">
-<link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html">
-<link rel="import" href="../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="/static/polymer/polymer.html">
+<link rel="import" href="/static/paper-button/paper-button.html">
+<link rel="import" href="/static/paper-input/paper-input-decorator.html">
+<link rel="import" href="/static/core-icon/core-icon.html">
 
 <polymer-element name="savvy-element" attributes="">
   <template>
     <link rel="stylesheet" href="savvy-element.css">
     <div horizontal layout end>
-      <paper-input-decorator floatingLabel label="Message" flex>
+      <paper-input-decorator floatingLabel label="Message" onclick="{{goLink}}" flex>
         <input type="name">
       </paper-input-decorator>
       &nbsp;
@@ -18,6 +18,9 @@
   <script>
     (function () {
       Polymer({
+        goLink: function () {
+
+        }
         // define element prototype here
       });
     })();
